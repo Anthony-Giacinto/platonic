@@ -1,1 +1,3 @@
-from platonic.main import PlatonicSolid
+from .main import PlatonicSolid
+
+__all__ = ['PlatonicSolid']
