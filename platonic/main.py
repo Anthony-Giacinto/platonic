@@ -22,8 +22,7 @@ class PlatonicSolid:
     Instance Attributes:
         faces: (int) The number of desired faces for the solid can only be 4, 6, 8, 12, or 20 (default is 4).
         edge_length: (float) The desired edge length for the solid (default is 1).
-
-    Properties:
+        plot: (bool) If True, will automatically plot the solid (default is True).
         name: (str) The name of the solid.
         schlafli_symbol: (tuple(int)) The Schlafli symbol for the solid (p, q).
         p: (int) The first Schlafli symbol (# of edges of each face).
@@ -47,14 +46,16 @@ class PlatonicSolid:
     schlafli_dict = {4: (3, 3), 6: (4, 3), 8: (3, 4), 12: (5, 3), 20: (3, 5)}
     coxeter_dict = {4: 4, 6: 6, 8: 6, 12: 10, 20: 10}
 
-    def __init__(self, faces=4, edge_length=1):
+    def __init__(self, faces=4, edge_length=1, plot=True):
         """
         :param faces: (int) The number of desired faces for the solid can only be 4, 6, 8, 12, or 20 (default is 4).
         :param edge_length: (float) The desired edge length for the solid (default is 1).
+        :param plot: (bool) If True, will automatically plot the solid (default is True).
         """
 
         self._faces = faces
         self.edge_length = edge_length
+        if plot: self.plot()
 
     @property
     def faces(self):
